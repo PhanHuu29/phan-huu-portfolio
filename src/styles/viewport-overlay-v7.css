@@ -1,0 +1,147 @@
+/* PHAN HỮU — V7 / True fixed overlay header + full-bleed route viewport.
+   Header does not participate in document flow. Visual backgrounds run beneath it.
+   Inner pages keep a safe inset for text and interactive elements. */
+:root {
+  --overlay-nav-height: 78px;
+  --overlay-nav-top: 10px;
+  --overlay-content-top: 132px;
+}
+html, body, #root { min-height: 100%; width: 100%; }
+html { scroll-padding-top: 105px; }
+body { overflow-x: clip; background: #050817; }
+.site-shell {
+  min-height: 100svh;
+  width: 100%;
+  overflow-x: clip;
+  background: #050817;
+}
+/* No blank bar, spacer, border or reserved block above the page. */
+.site-shell > .fixed-header-spacer { display: none !important; height: 0 !important; }
+.site-shell > header.site-header.polished-header {
+  position: fixed;
+  top: var(--overlay-nav-top);
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 1000;
+  width: min(calc(100% - 44px), 1400px);
+  box-shadow: 0 12px 48px rgba(0,3,19,.45), inset 0 1px rgba(203,230,255,.14), 0 0 32px rgba(52,96,211,.10);
+}
+.site-shell > header.site-header.polished-header.is-scrolled { top: 7px; }
+.site-shell > main {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  z-index: 1;
+}
+.site-shell > main > .page-motion-shell {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* Ensure the home background paints UNDER the floating header from viewport y=0. */
+.page-motion-shell.page-is-home .neone-hero {
+  position: relative;
+  min-height: 100svh;
+  margin: 0;
+  padding-top: 0;
+  background:
+    radial-gradient(ellipse 74% 330px at 50% 0%, rgba(64,107,222,.25), transparent 84%),
+    linear-gradient(180deg,#0a1330 0%,#060b20 59%,#050817 100%);
+}
+.page-motion-shell.page-is-home .hero-content {
+  position: relative;
+  padding-top: clamp(145px, 17vh, 190px);
+}
+.page-motion-shell.page-is-home .horizon-aura {
+  top: 0;
+  height: min(770px, 94svh);
+  overflow: visible;
+}
+.page-motion-shell.page-is-home .horizon-light {
+  top: 98px;
+  width: min(1460px, 128vw);
+  height: 330px;
+  background: transparent;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  box-shadow: 0 -3px 14px rgba(106,184,255,.44),0 -18px 60px rgba(67,109,249,.18);
+  filter: none;
+  mask-image: linear-gradient(to bottom, #000 0%,#000 49%,transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%,#000 49%,transparent 98%);
+}
+.page-motion-shell.page-is-home .horizon-core { top: -190px; }
+.page-motion-shell.page-is-home .hero-grid { inset: 0 0 8%; }
+.page-motion-shell.page-is-home .showcase-wrap { margin-top: clamp(38px,4vw,64px); }
+.page-motion-shell.page-is-home .scroll-explore { margin-top: 32px; }
+
+/* Interior routes: continuous illuminated canvas from y=0; content safely clears overlay. */
+.page-motion-shell.page-is-inner {
+  isolation: isolate;
+  min-height: 100svh;
+  background:
+    radial-gradient(ellipse 74% 340px at 50% 0%, rgba(62,107,220,.29), transparent 79%),
+    radial-gradient(ellipse 47% 400px at 82% 23%, rgba(35,59,155,.12), transparent 83%),
+    linear-gradient(180deg, #0a1430 0%, #060b20 490px, #050817 920px);
+}
+.page-motion-shell.page-is-inner::before {
+  inset: 0 0 auto;
+  height: 300px;
+  background: radial-gradient(ellipse 44% 80% at 50% 0%, rgba(89,149,255,.22), transparent 76%);
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 100%);
+}
+.page-motion-shell.page-is-inner::after {
+  top: 108px;
+  width: min(76vw,1160px);
+  height: 210px;
+  opacity: .55;
+  mask-image: linear-gradient(to bottom,#000 0%,transparent 94%);
+}
+.page-motion-shell.page-is-inner .inner-page,
+.page-motion-shell.page-is-inner .project-detail {
+  padding-top: var(--overlay-content-top);
+  min-height: 100svh;
+  margin-top: 0;
+  scroll-margin-top: calc(var(--overlay-nav-height) + 30px);
+}
+.page-motion-shell.page-is-inner .inner-page > .eyebrow { margin-bottom: 18px; }
+.page-motion-shell.page-is-inner .project-detail > .back-link { margin-bottom: 34px; }
+.page-motion-shell.page-is-inner .project-detail > h1 { margin-top: 14px; }
+
+/* Smaller screens: no horizontal scroll and no nav/content overlap. */
+@media (max-width: 930px) {
+  :root { --overlay-nav-height: 72px; --overlay-nav-top: 8px; --overlay-content-top: 118px; }
+  .site-shell > header.site-header.polished-header { width: calc(100% - 28px); }
+  .page-motion-shell.page-is-home .hero-content { padding-top: clamp(130px,16vh,164px); }
+  .page-motion-shell.page-is-home .horizon-light { top: 94px; width: 168vw; height: 280px; }
+}
+@media (max-width: 750px) {
+  :root { --overlay-nav-height: 70px; --overlay-content-top: 108px; }
+  .page-motion-shell.page-is-home .hero-content { padding-top: 126px; }
+  .page-motion-shell.page-is-home .horizon-aura { height: 510px; }
+  .page-motion-shell.page-is-home .horizon-light { top: 93px; width: 195vw; height: 240px; }
+  .page-motion-shell.page-is-home .horizon-core { top: -145px; }
+  .page-motion-shell.page-is-home .showcase-wrap { margin-top: 25px; }
+  .page-motion-shell.page-is-inner::after { top: 91px; width: 125vw; }
+}
+@media (max-width: 540px) {
+  :root { --overlay-nav-height: 65px; --overlay-nav-top: 6px; --overlay-content-top: 98px; }
+  .site-shell > header.site-header.polished-header { width: calc(100% - 16px); }
+  .site-shell > header.site-header.polished-header.is-scrolled { top: 5px; }
+  .page-motion-shell.page-is-home .hero-content { padding-top: 110px; }
+  .page-motion-shell.page-is-home .horizon-light { top: 86px; width: 205vw; height: 215px; }
+  .page-motion-shell.page-is-home .horizon-aura { height: 455px; }
+  .page-motion-shell.page-is-home .horizon-core { top: -130px; width: 530px; }
+  .page-motion-shell.page-is-home .showcase-wrap { margin-top: 20px; }
+  .page-motion-shell.page-is-inner::after { top: 79px; height: 120px; }
+  .page-motion-shell.page-is-inner .inner-page,
+  .page-motion-shell.page-is-inner .project-detail { padding-top: var(--overlay-content-top); }
+  .page-motion-shell.page-is-inner .project-detail > .back-link { margin-bottom: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-motion-shell.page-is-home .horizon-light { animation: none !important; }
+}

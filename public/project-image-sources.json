@@ -1,0 +1,122 @@
+[
+  {
+    "id": "web-lihtech",
+    "title": "LihTech — Website",
+    "slug": "lihtech-website",
+    "cover_url": "/images/lihtech-cover.svg",
+    "original_project": "https://lihtech-blue.vercel.app/",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Illustrative cover; live website link only"
+  },
+  {
+    "id": "behance-1",
+    "title": "MORI TEA HOUSE",
+    "slug": "mori-tea-house",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/edaeed253201745.Y3JvcCwxMzA5LDEwMjQsMTEzLDA.png",
+    "original_project": "https://www.behance.net/gallery/253201745/MORI-TEA-HOUSE",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-2",
+    "title": "LUMI Skincare Packaging",
+    "slug": "lumi-skincare-packaging",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/95f505253198211.Y3JvcCwxMTk4LDkzNywwLDE4Ng.png",
+    "original_project": "https://www.behance.net/gallery/253198211/LUMI-Skincare-Packaging",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-3",
+    "title": "VELA COFFEE Brand Identity",
+    "slug": "vela-coffee-brand-identity",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/d1ba51253197895.Y3JvcCwxMTk4LDkzNywwLDE4Ng.png",
+    "original_project": "https://www.behance.net/gallery/253197895/VELA-COFFEE-Brand-Identity",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-4",
+    "title": "Fast Food",
+    "slug": "fast-food",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/1b4303252846055.Y3JvcCw4NzMsNjgzLDc1LDA.jpg",
+    "original_project": "https://www.behance.net/gallery/252846055/Fast-Food",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-5",
+    "title": "Two Coffee Pouch Mockups",
+    "slug": "two-coffee-pouch-mockups",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/6c72b5252835299.Y3JvcCwxMTUyLDkwMSwwLDMxNg.jpg",
+    "original_project": "https://www.behance.net/gallery/252835299/Two-Coffee-Pouch-Mockups",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-6",
+    "title": "Coffee Bags Mockups",
+    "slug": "coffee-bags-mockups",
+    "cover_url": null,
+    "original_project": "https://www.behance.net/gallery/252833845/Coffee-Bags-Mockups",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-7",
+    "title": "Beverage Can Mockup",
+    "slug": "beverage-can-mockup",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/3365dd252833019.Y3JvcCw4NzEsNjgyLDc1LDA.jpg",
+    "original_project": "https://www.behance.net/gallery/252833019/Beverage-Can-Mockup",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-8",
+    "title": "Coffee Paper Cup Mockup on Table",
+    "slug": "coffee-paper-cup-mockup-on-table",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/b9e946252831381.Y3JvcCwxMDI0LDgwMCwwLDExMQ.jpg",
+    "original_project": "https://www.behance.net/gallery/252831381/Coffee-Paper-Cup-Mockup-on-Table",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-9",
+    "title": "Food Bag Mockup",
+    "slug": "food-bag-mockup",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/e0bf88252828831.Y3JvcCw5ODEsNzY4LDIxLDA.jpg",
+    "original_project": "https://www.behance.net/gallery/252828831/Food-Bag-Mockup",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-10",
+    "title": "Kraft Paper Bags Mockup",
+    "slug": "kraft-paper-bags-mockup",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/b90109252828591.Y3JvcCwxMDI0LDgwMCwwLDM1.jpg",
+    "original_project": "https://www.behance.net/gallery/252828591/Kraft-Paper-Bags-Mockup",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  },
+  {
+    "id": "behance-11",
+    "title": "Small Yogurt Cup Mockup",
+    "slug": "small-yogurt-cup-mockup",
+    "cover_url": "https://mir-s3-cdn-cf.behance.net/projects/404/c87236252828319.Y3JvcCw5ODEsNzY4LDIxLDA.jpg",
+    "original_project": "https://www.behance.net/gallery/252828319/Small-Yogurt-Cup-Mockup",
+    "gallery_urls": [],
+    "gallery_complete": false,
+    "note": "Existing Behance cover URL; original multi-image gallery unavailable for automatic import"
+  }
+]

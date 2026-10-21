@@ -1,0 +1,30 @@
+export type ProjectKind = 'development' | 'design';
+export type ProjectStatus = 'draft' | 'published';
+export type ProjectEditorialFields = 'title'|'subtitle'|'description'|'category'|'role'|'client';
+export type ProjectTranslation = Partial<Pick<Project, ProjectEditorialFields>>;
+export type ProjectTranslations = Record<string,ProjectTranslation>;
+export interface Project {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  category: string;
+  kind: ProjectKind;
+  year: number;
+  client: string;
+  role: string;
+  technologies: string[];
+  translations?: ProjectTranslations;
+  cover_url: string | null;
+  media_urls: string[];
+  demo_url: string | null;
+  github_url: string | null;
+  accent: string;
+  featured: boolean;
+  status: ProjectStatus;
+  sort_order: number;
+  created_at?: string;
+  updated_at?: string;
+}
+export type ProjectInput = Omit<Project,'id' | 'created_at' | 'updated_at'>;

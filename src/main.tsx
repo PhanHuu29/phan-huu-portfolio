@@ -1,0 +1,14 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import {BrowserRouter} from 'react-router-dom';
+import App from './App';
+import {LanguageProvider} from './i18n';
+import './styles/fonts.css';
+import './styles/tailwind.css';
+import './styles/index.css';
+import './styles/neone.css';
+import './styles/led-effects.css';
+import './styles/premium-motion.css';
+import './styles/header-3d.css';
+import './styles/responsive-layout.css';
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><LanguageProvider><BrowserRouter><App/></BrowserRouter></LanguageProvider></React.StrictMode>);

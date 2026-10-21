@@ -1,0 +1,35 @@
+/* Tailwind CSS v4 — Vite integration, PHAN HỮU Portfolio V9
+ * Important: omit Preflight so the proven V8 visual system is not reset.
+ * Tailwind handles new responsive layouts, spacing, typography and controls;
+ * existing CSS continues to own the LED, glass, 3D and interaction visuals.
+ * Scan class strings in the src folder; do not assemble class fragments.
+ */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source("../");
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+  --color-midnight: #050817;
+  --color-navy: #0c1531;
+  --color-panel: #101d3c;
+  --color-electric: #89b5ff;
+  --color-ice: #c8e0ff;
+  --color-mist: #9caed1;
+  --color-outline: #293b61;
+}
+
+/* Optional, reusable brand utilities; Preflight is deliberately absent. */
+@utility ph-glass {
+  border: 1px solid rgba(145, 188, 255, .23);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(23, 38, 79, .72), rgba(7, 14, 35, .78));
+  backdrop-filter: blur(20px) saturate(130%);
+  box-shadow: inset 0 1px rgba(225, 240, 255, .10), 0 16px 42px rgba(0, 3, 20, .24);
+}
+
+@utility ph-focus {
+  outline: 2px solid #9cc8ff;
+  outline-offset: 4px;
+}

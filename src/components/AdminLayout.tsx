@@ -1,0 +1,6 @@
+import {NavLink,Outlet,useNavigate,Link} from 'react-router-dom';
+import {LayoutDashboard,FolderOpen,Plus,ExternalLink,LogOut} from 'lucide-react';
+import {supabase} from '../lib/supabase';
+export default function AdminLayout(){const navigate=useNavigate();async function signOut(){await supabase?.auth.signOut();navigate('/admin/login',{replace:true})}
+ return <div className="admin-shell min-h-svh"><aside className="admin-sidebar"><Link to="/" className="admin-brand"><img src="/images/phan-huu-logo.png" alt="" className="admin-logo"/> PHAN HỮU <small>CMS</small></Link><p className="admin-sidebar-label">WORKSPACE</p><nav><NavLink to="/admin" end><LayoutDashboard size={18}/> Overview</NavLink><NavLink to="/admin/projects"><FolderOpen size={18}/> Projects</NavLink><NavLink to="/admin/projects/new"><Plus size={18}/> New project</NavLink></nav><div className="admin-sidebar-bottom"><Link to="/" target="_blank"><ExternalLink size={17}/> Public website</Link><button onClick={signOut}><LogOut size={17}/> Sign out</button></div></aside><div className="admin-content min-w-0"><header className="admin-topbar"><span>PORTFOLIO / CONTENT MANAGEMENT</span><a href="/" target="_blank" rel="noreferrer">VIEW WEBSITE ↗</a></header><div className="admin-main"><Outlet/></div></div></div>
+}

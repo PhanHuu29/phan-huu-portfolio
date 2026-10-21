@@ -1,0 +1,115 @@
+/* PHAN HỮU / LED & MEDIA DESIGN UPDATE — supports pointer, touch, keyboard and reduced motion */
+@property --led-phase {syntax:'<angle>';initial-value:0deg;inherits:false}
+:root{--led-blue:#659eff;--led-cyan:#67d9ff;--led-violet:#9f73ff}
+/* Single-line PHAN HỮU wordmark beside the supplied logo */
+.site-header .brand{display:inline-flex;gap:10px;align-items:center;min-width:max-content}
+.site-header .brand-wordmark{display:flex;flex-direction:column;align-items:flex-start;white-space:nowrap;font-size:17px;line-height:1.04;color:#edf4ff!important;letter-spacing:-.04em}
+.site-header .brand-main{display:inline-flex;flex-direction:row;gap:5px;align-items:baseline;white-space:nowrap;color:#edf4ff!important}
+.site-header .brand-main strong{color:#a8cbff;font-weight:800}
+.site-header .brand-wordmark small{letter-spacing:.19em;font-size:7px;margin-top:6px;font-weight:700;color:#83a0dd}
+.site-header .brand img{width:56px;height:56px;filter:drop-shadow(0 0 9px #447bff7a)}
+/* Continuous but unobtrusive LED activity on illuminated hero and showcase borders */
+.horizon-light{animation:horizon-led-pulse 5s ease-in-out infinite alternate}
+.horizon-light::after{content:"";position:absolute;left:14%;right:14%;top:-4px;height:3px;border-radius:100%;background:linear-gradient(90deg,transparent 0%,#73d9ff00 10%,#a7ddff 28%,#4c83ff 48%,#e4f2ff 52%,#68aeff 75%,transparent 100%);filter:blur(2px) drop-shadow(0 0 12px #79aaff);animation:led-scan 6s ease-in-out infinite alternate;pointer-events:none}
+@keyframes horizon-led-pulse{from{filter:drop-shadow(0 -3px 9px #56afff75) drop-shadow(0 -16px 28px #3661ff52)}to{filter:drop-shadow(0 -5px 15px #8fd9ff) drop-shadow(0 -19px 44px #395cff95)}}
+@keyframes led-scan{0%{opacity:.28;transform:translateX(-12%) scaleX(.85)}55%{opacity:1}100%{opacity:.45;transform:translateX(12%) scaleX(1.1)}}
+.showcase-window{border:1px solid transparent;background:linear-gradient(#0a1230,#0a1230) padding-box,conic-gradient(from var(--led-phase),#29477b,#6cc6ff,#817bff,#162e61,#29477b) border-box;animation:led-perimeter 13s linear infinite;box-shadow:0 0 0 7px #111c3966,0 0 82px #2a61d568,0 40px 135px #000a}
+@keyframes led-perimeter{to{--led-phase:360deg}}
+/* LED perimeter is visible over actual project imagery. The spotlight follows cursor position. */
+.project-card{display:block;outline-offset:5px;--pointer-x:50%;--pointer-y:50%;--glow-opacity:.10;transition:transform .32s ease,filter .32s ease}
+.project-card .project-image-wrap{border:2px solid transparent;background:linear-gradient(#071023,#071023) padding-box,conic-gradient(from var(--led-phase),#243454 0%,#396bbb 21%,#96d7ff 28%,#527eff 33%,#182f60 51%,#6c9fff 75%,#202b49 100%) border-box;animation:led-perimeter 8s linear infinite;isolation:isolate;position:relative;box-shadow:0 8px 40px #0007,0 0 14px #3168ff22;transition:box-shadow .35s ease,filter .35s ease}
+.project-card .project-image-wrap::after{content:"";position:absolute;z-index:3;inset:0;pointer-events:none;background:radial-gradient(450px circle at var(--pointer-x) var(--pointer-y),#8cc9ff48 0%,#5278ff16 28%,transparent 65%);opacity:0;transition:opacity .28s ease;mix-blend-mode:screen}
+.project-card:hover,.project-card:focus-visible,.project-card:active{transform:translateY(-7px)}
+.project-card:hover .project-image-wrap,.project-card:focus-visible .project-image-wrap,.project-card:active .project-image-wrap{box-shadow:0 14px 60px #000a,0 0 18px #5793ff8f,0 0 60px #3367ff45}
+.project-card:hover .project-image-wrap::after,.project-card:focus-visible .project-image-wrap::after,.project-card:active .project-image-wrap::after{opacity:1}
+.project-card:hover .artwork,.project-card:focus-visible .artwork,.project-card:active .artwork{transform:scale(1.035)}
+.project-card:active{filter:brightness(1.22)}
+.project-card .artwork{width:100%;height:100%;aspect-ratio:1.22;position:relative;z-index:1}
+.project-card .project-arrow,.project-card .project-image-number{z-index:4}
+.project-card:focus-visible{outline:2px solid #9cd7ff;border-radius:12px}
+/* Icon-coded specialties (not invented tech stacks); real technology names have luminous chips */
+.technology-chips{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:13px}
+.technology-chip{display:inline-flex;gap:6px;align-items:center;justify-content:center;min-height:30px;max-width:100%;border:1px solid #354a69;padding:5px 10px;border-radius:999px;background:#0d1931bd;color:#cbdaf6;font:600 11px/1.15 var(--font-body);white-space:nowrap}
+.technology-chip svg{flex:0 0 auto;color:#7fa6e6}
+.technology-chip.real-tech{color:#dae7ff;background:linear-gradient(120deg,#16274b,#101b36);border-color:#426eac}
+.technology-chip.platform-tech{border-color:#385ea4;color:#b4caff}
+.technology-mark{color:var(--tech-color,#8cc1ff);font-weight:800;font-family:var(--font-display);font-size:15px;min-width:15px;text-align:center;line-height:1}
+.technology-mark.behance-mark{color:#80adff;font-size:14px}
+.technology-chips-compact{margin:12px 0 0;gap:6px}
+.technology-chips-compact .technology-chip{font-size:10px;padding:5px 8px;min-height:27px;border-color:#2c3a5d}
+.project-caption{margin-top:16px}
+.project-kind{min-width:max-content}
+.detail-grid aside .technology-chips{margin-top:3px}
+.detail-grid aside .technology-chip{font-weight:600}
+/* Gallery: media gallery supports any number of locally uploaded or publicly linked assets. */
+.project-gallery-block{padding:25px 0 70px}
+.gallery-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px;gap:20px}
+.gallery-heading h2{margin:10px 0 0;font:700 clamp(34px,5.5vw,69px)/1 var(--font-display);letter-spacing:-.067em}
+.gallery-heading em{color:#90b8ff;font-style:normal}
+.gallery-heading>span{font-size:11px;letter-spacing:.17em;color:#90a9d8}
+.gallery-mosaic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.gallery-thumbnail{display:block;aspect-ratio:1.5;border:1px solid #314d85;border-radius:14px;background:linear-gradient(140deg,#17244a,#060c23);padding:0;overflow:hidden;position:relative;box-shadow:0 15px 30px #0005;transition:transform .28s ease,box-shadow .28s ease}
+.gallery-thumbnail.gallery-featured{grid-column:1/-1;aspect-ratio:1.85}
+.gallery-thumbnail img,.gallery-thumbnail video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.1,.8,.2,1)}
+.gallery-thumbnail>span{position:absolute;right:15px;bottom:15px;display:flex;align-items:center;gap:7px;background:#06112dbb;color:#e3edff;padding:9px 13px;border:1px solid #8eacff77;border-radius:100px;font-size:10px;letter-spacing:.08em}
+.gallery-thumbnail:is(:hover,:focus-visible,:active){transform:translateY(-3px);box-shadow:0 0 29px #3b79ff72,0 23px 45px #0008;border-color:#a7caff}
+.gallery-thumbnail:is(:hover,:focus-visible,:active) img{transform:scale(1.04)}
+.gallery-original-note{margin-top:18px;color:#8d9dbc;font-size:12px;line-height:1.8}
+.gallery-original-note a,.gallery-empty a{color:#a1c9ff;text-decoration:underline;text-underline-offset:3px}
+.gallery-empty{border:1px dashed #354975;padding:48px 25px;text-align:center;border-radius:14px;color:#9eadd0}
+.gallery-empty a{display:inline-flex;align-items:center;gap:7px}
+.gallery-lightbox{position:fixed;inset:0;z-index:1000;background:#01030afa;display:grid;place-items:center;animation:lightbox-in .2s ease}
+@keyframes lightbox-in{from{opacity:0}to{opacity:1}}
+.lightbox-bar{position:absolute;top:0;left:0;right:0;height:65px;display:flex;align-items:center;justify-content:space-between;padding:12px 25px;color:#b9caff;font-size:12px;letter-spacing:.06em}
+.gallery-lightbox button{color:#e2efff;display:grid;place-items:center;background:#1a2d4bc9;border:1px solid #5b76b2;border-radius:50%;width:44px;height:44px;cursor:pointer}
+.gallery-lightbox button:hover{background:#2c54a1;box-shadow:0 0 20px #426dff80}
+.lightbox-content{width:min(90vw,1400px);height:min(83vh,980px);display:grid;place-items:center}
+.lightbox-content img,.lightbox-content video{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 0 70px #2c5ce040}
+.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lightbox-prev{left:15px}.lightbox-next{right:15px}
+/* Bulk gallery form enhancements */
+.admin-secondary-action{display:flex;align-items:center;gap:8px;color:#d1e4ff;border:1px solid #43639a;background:#15274d;padding:10px 15px;border-radius:9px;margin:13px 0 20px;font-weight:700;font-size:11px}
+.admin-secondary-action:hover{background:#20407b}
+.admin-media-controls{display:flex;align-items:center;flex-wrap:wrap;gap:2px}
+.admin-media-controls button{display:grid;place-items:center;width:29px;height:29px;border:1px solid #324569;background:#142346;border-radius:6px;color:#bed4ff}
+.admin-media-controls button:disabled{opacity:.3;cursor:not-allowed}
+.admin-media-controls button:hover:not(:disabled){background:#3769b7}
+/* Mobile usability */
+@media(max-width:800px){.site-header .brand-wordmark{font-size:15px}.site-header .brand img{width:46px;height:46px}.technology-chip{font-size:10px}.technology-chips-compact .technology-chip{font-size:9px}.gallery-mosaic{gap:12px}}
+@media(max-width:480px){.site-header .brand{gap:5px}.site-header .brand-wordmark{font-size:13px}.site-header .brand img{width:42px;height:42px}.site-header .brand-wordmark small{font-size:6px;letter-spacing:.14em}.gallery-mosaic{grid-template-columns:1fr}.gallery-thumbnail.gallery-featured{grid-column:auto}.gallery-thumbnail{aspect-ratio:1.4}.gallery-heading h2{font-size:37px}.lightbox-content{width:94vw;height:80vh}.lightbox-bar{padding:10px}.lightbox-prev{left:5px}.lightbox-next{right:5px}.gallery-lightbox button{width:35px;height:35px}}
+@media(pointer:coarse){.project-card:active .project-image-wrap{box-shadow:0 0 35px #5093ffb0}.project-arrow{transform:translateY(0);opacity:.9}}
+@media(prefers-reduced-motion:reduce){.showcase-window,.project-card .project-image-wrap,.horizon-light,.horizon-light::after{animation:none!important}.project-card,.gallery-thumbnail{transition:none!important}}
+
+
+/* WEBSITE MOTION & LOGO ANIMATION UPDATE */
+.site-shell{position:relative;overflow-x:clip}
+.site-ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.site-ambient .ambient-orb{position:absolute;border-radius:50%;filter:blur(40px);opacity:.16;mix-blend-mode:screen;animation:ambient-float 18s ease-in-out infinite}
+.site-ambient .orb-one{width:28rem;height:28rem;left:-8rem;top:10rem;background:radial-gradient(circle,#57a2ff 0%,rgba(87,162,255,.15) 35%,transparent 72%)}
+.site-ambient .orb-two{width:24rem;height:24rem;right:-6rem;top:32rem;background:radial-gradient(circle,#7e76ff 0%,rgba(126,118,255,.14) 35%,transparent 72%);animation-duration:22s;animation-delay:-6s}
+.site-ambient .orb-three{width:20rem;height:20rem;left:40%;bottom:-5rem;background:radial-gradient(circle,#59d7ff 0%,rgba(89,215,255,.12) 35%,transparent 70%);animation-duration:20s;animation-delay:-10s}
+.site-ambient .ambient-line{position:absolute;height:1px;width:30vw;background:linear-gradient(90deg,transparent,rgba(142,188,255,.8),transparent);opacity:.35;filter:drop-shadow(0 0 9px rgba(112,166,255,.5));animation:ambient-line-slide 10s linear infinite}
+.site-ambient .line-one{top:18vh;left:-10vw;transform:rotate(-10deg)}
+.site-ambient .line-two{bottom:24vh;right:-10vw;transform:rotate(8deg);animation-duration:12s;animation-delay:-4s}
+/* Decorative overlays retain their fixed positioning; only content receives a stacking layer. */
+.site-shell > main,.site-shell > .footer{position:relative;z-index:1}
+@keyframes ambient-float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-24px,0) scale(1.08)}}
+@keyframes ambient-line-slide{0%{transform:translateX(-10vw) rotate(var(--r,0deg));opacity:0}20%{opacity:.45}80%{opacity:.45}100%{transform:translateX(25vw) rotate(var(--r,0deg));opacity:0}}
+
+.technology-chip{position:relative;overflow:hidden;transition:transform .26s ease,box-shadow .26s ease,border-color .26s ease,background .26s ease,color .26s ease}
+.technology-chip::after{content:"";position:absolute;inset:-1px;background:radial-gradient(160px circle at var(--logo-x,50%) var(--logo-y,50%),rgba(139,195,255,.28),transparent 45%);opacity:0;transition:opacity .22s ease;pointer-events:none}
+.technology-chip:hover,.technology-chip:focus-visible,.technology-chip:active{transform:translateY(-2px) scale(1.03);box-shadow:0 0 22px rgba(78,138,255,.28),0 8px 28px rgba(0,0,0,.28);border-color:#84b7ff;background:linear-gradient(120deg,#17315f,#0f1f3f)}
+.technology-chip:hover::after,.technology-chip:focus-visible::after,.technology-chip:active::after{opacity:1}
+.technology-chip .tech-logo-svg{transition:transform .34s cubic-bezier(.2,.9,.2,1),filter .34s ease}
+.technology-chip:hover .tech-logo-svg,.technology-chip:focus-visible .tech-logo-svg,.technology-chip:active .tech-logo-svg{transform:translateY(-1px) scale(1.12) rotate(-6deg);filter:drop-shadow(0 0 10px rgba(131,186,255,.65))}
+.technology-chip.real-tech{background:linear-gradient(120deg,#16274b,#101b36);border-color:#426eac}
+.technology-chip.skill-tech{background:rgba(12,22,43,.78)}
+
+.project-card .technology-chip{cursor:pointer}
+.project-card .technology-chip:nth-child(2n):hover .tech-logo-svg,.project-card .technology-chip:nth-child(2n):focus-visible .tech-logo-svg,.project-card .technology-chip:nth-child(2n):active .tech-logo-svg{transform:translateY(-1px) scale(1.12) rotate(6deg)}
+
+.hero-grid{animation:hero-grid-pan 16s linear infinite}
+@keyframes hero-grid-pan{0%{transform:translateY(0)}50%{transform:translateY(8px)}100%{transform:translateY(0)}}
+.marquee div{animation-duration:18s}
+@media(pointer:coarse){.technology-chip:active{transform:scale(1.04)}.technology-chip:active .tech-logo-svg{transform:scale(1.15) rotate(0deg)} }
+@media(prefers-reduced-motion:reduce){.site-ambient .ambient-orb,.site-ambient .ambient-line,.technology-chip,.technology-chip .tech-logo-svg,.hero-grid{animation:none!important;transition:none!important}}

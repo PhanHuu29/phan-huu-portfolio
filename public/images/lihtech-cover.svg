@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-label="LIHTECH project illustration, not a screenshot of the live website">
+<defs>
+ <linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08182b"/><stop offset=".55" stop-color="#07101d"/><stop offset="1" stop-color="#061227"/></linearGradient>
+ <radialGradient id="a"><stop stop-color="#1589d1" stop-opacity=".32"/><stop offset="1" stop-color="#1589d1" stop-opacity="0"/></radialGradient>
+ <linearGradient id="x" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#45baff"/><stop offset="1" stop-color="#5076f8"/></linearGradient>
+ <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17345a" stop-opacity=".8"/><stop offset="1" stop-color="#0b2136" stop-opacity=".6"/></linearGradient>
+ <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="25"/></filter>
+ <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M56 0H0V56" fill="none" stroke="#6ec1ff" stroke-opacity=".075"/></pattern>
+</defs>
+<rect width="1280" height="820" fill="#050a14"/>
+<rect x="36" y="32" width="1208" height="754" rx="28" fill="url(#b)" stroke="#25476d" stroke-width="2"/>
+<rect x="36" y="32" width="1208" height="754" rx="28" fill="url(#grid)"/>
+<circle cx="922" cy="444" r="375" fill="url(#a)"/>
+<path d="M36 106H1244" stroke="#1d334f" stroke-width="2"/>
+<circle cx="81" cy="72" r="8" fill="#fd817f"/><circle cx="110" cy="72" r="8" fill="#ffdc91"/><circle cx="139" cy="72" r="8" fill="#80d8bc"/>
+<rect x="455" y="54" width="372" height="36" rx="18" fill="#0b1d32" stroke="#24405c"/>
+<text x="641" y="77" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="#8fa8c4">lihtech-blue.vercel.app</text>
+<text x="116" y="188" font-family="Arial,sans-serif" font-size="32" font-weight="800" letter-spacing="2" fill="#e9f8ff">LIH<tspan fill="#5ac0ff">TECH</tspan></text>
+<text x="116" y="220" font-family="Arial,sans-serif" font-size="15" fill="#8fb0cb">BY LIHLABS  ·  DIGITAL SOLUTIONS</text>
+<rect x="116" y="280" width="255" height="37" rx="19" fill="#112d46" stroke="#267da7"/>
+<circle cx="138" cy="298" r="5" fill="#56dbff"/>
+<text x="156" y="304" font-family="Arial,sans-serif" font-size="15" fill="#a9deff">WEB DEVELOPMENT</text>
+<text x="108" y="395" font-family="Arial,sans-serif" font-size="73" font-weight="800" letter-spacing="-2" fill="#f2faff">Smart solutions.</text>
+<text x="108" y="472" font-family="Arial,sans-serif" font-size="73" font-weight="800" letter-spacing="-2" fill="#69c6ff">Real impact.</text>
+<text x="114" y="530" font-family="Arial,sans-serif" font-size="24" fill="#a5bbd6">Phần mềm &amp; hỗ trợ công nghệ thông tin</text>
+<rect x="113" y="579" width="256" height="69" rx="14" fill="url(#x)"/>
+<text x="241" y="622" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#06172d">LIVE WEBSITE</text>
+<g transform="translate(758 247)">
+ <circle cx="245" cy="174" r="210" fill="none" stroke="#41acff" stroke-width="4" opacity=".3"/>
+ <circle cx="245" cy="174" r="153" fill="none" stroke="#41acff" stroke-width="3" opacity=".45"/>
+ <circle cx="245" cy="174" r="100" fill="#138bd0" opacity=".22" filter="url(#glow)"/>
+ <rect x="0" y="25" width="405" height="285" rx="28" fill="url(#glass)" stroke="#3676af" stroke-width="3"/>
+ <rect x="23" y="49" width="359" height="55" rx="11" fill="#0c2741"/>
+ <circle cx="53" cy="77" r="12" fill="#37b7ff"/>
+ <rect x="82" y="67" width="152" height="15" rx="7" fill="#4181b7" opacity=".8"/>
+ <rect x="30" y="132" width="207" height="16" rx="8" fill="#78d6ff"/>
+ <rect x="30" y="167" width="270" height="13" rx="6" fill="#31749f"/>
+ <rect x="30" y="195" width="230" height="13" rx="6" fill="#31749f"/>
+ <rect x="31" y="239" width="112" height="40" rx="9" fill="#167db8"/>
+ <rect x="265" y="125" width="112" height="129" rx="14" fill="#155080"/>
+ <path d="M283 220L306 187L330 203L353 165" fill="none" stroke="#72d5ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+ </g>
+<text x="116" y="739" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#809dbe">PORTFOLIO / DEVELOPMENT</text>
+<text x="1125" y="739" text-anchor="end" font-family="Arial,sans-serif" font-size="15" fill="#718aa7">COVER CONCEPT</text>
+</svg>
