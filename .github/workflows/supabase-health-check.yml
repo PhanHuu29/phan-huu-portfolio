@@ -1,0 +1,26 @@
+
+name: Supabase Health Check
+
+on:
+  schedule:
+    - cron: "17 2,14 * * *"
+  workflow_dispatch:
+
+jobs:
+  check-database:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            --retry 2 --max-time 30 \
+            --get "$SUPABASE_URL/rest/v1/projects" \
+            --data-urlencode "select=id" \
+            --data-urlencode "limit=1" \
+            -H "apikey: $SUPABASE_PUBLISHABLE_KEY"
+
+          echo "Supabase connection OK"
