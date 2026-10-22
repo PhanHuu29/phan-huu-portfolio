@@ -1,11 +1,12 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
-/** Add another language code here, add its dictionary and the corresponding CMS translations. */
+/** Add another language code here, its dictionary, and the corresponding CMS translations. */
 export const supportedLanguages = [
   { code: 'vi', label: 'Tiếng Việt', short: 'VI' },
   { code: 'en', label: 'English', short: 'EN' },
 ] as const;
-export type Locale = typeof supportedLanguages[number]['code'];
+
+export type Locale = (typeof supportedLanguages)[number]['code'];
 
 export const messages: Record<Locale, Record<string, string>> = {
   vi: {
@@ -52,178 +53,105 @@ export const messages: Record<Locale, Record<string, string>> = {
     'showcase.3dLabel': 'Biểu tượng PHAN HỮU 3D giữa các vòng sáng xanh', 'showcase.online3d': 'HỆ THỐNG THIẾT KẾ ĐANG HOẠT ĐỘNG', 'intro.open': 'Đang mở Portfolio PHAN HỮU', 'intro.crafting': 'ĐANG KIẾN TẠO TRẢI NGHIỆM', 'tech.notUpdated': 'Chưa cập nhật công nghệ', 'loading.projects': 'Đang tải dự án...', 'loading.error': 'Không thể tải dữ liệu:', 'art.preview': 'Xem hình ảnh dự án',
   },
   en: {
-    'nav.home': 'Home',
-    'nav.projects': 'Projects',
-    'nav.about': 'About',
-    'nav.contact': 'Contact',
-    'nav.explore': 'EXPLORE',
-    'nav.talk': 'GET IN TOUCH',
-    'nav.collaborate': 'LET’S COLLABORATE',
-    'nav.menuOpen': 'Open menu',
-    'nav.menuClose': 'Close menu',
+    'nav.home': 'Home', 'nav.projects': 'Projects', 'nav.about': 'About', 'nav.contact': 'Contact', 'nav.explore': 'EXPLORE',
+    'nav.talk': 'GET IN TOUCH', 'nav.collaborate': 'LET’S COLLABORATE', 'nav.menuOpen': 'Open menu', 'nav.menuClose': 'Close menu',
     'nav.skip': 'Skip to main content',
     'nav.brandTagline': 'DEVELOPMENT ✦ DESIGN',
-    'footer.idea': 'HAVE AN IDEA IN MIND?',
-    'footer.build1': 'LET’S BRING IT',
-    'footer.build2': 'TO LIFE.',
-    'footer.copyright': 'CRAFTED WITH PASSION.',
-    'footer.discipline': 'DESIGN × DEVELOPMENT',
-    'footer.admin': 'ADMIN',
-    'hero.pill': 'CREATIVE UNIVERSE',
-    'hero.title1': 'Turning Ideas Into Reality.',
-    'hero.title2': 'Shaping the Future.',
+    'footer.idea': 'HAVE AN IDEA IN MIND?', 'footer.build1': 'LET’S BRING IT', 'footer.build2': 'TO LIFE.',
+    'footer.copyright': 'CRAFTED WITH PASSION.', 'footer.discipline': 'DESIGN × DEVELOPMENT', 'footer.admin': 'ADMIN',
+    'hero.pill': 'CREATIVE UNIVERSE', 'hero.title1': 'Turning Ideas Into Reality.', 'hero.title2': 'Shaping the Future.',
     'hero.subtitle': 'I’m Phan Huu — a software developer and visual designer, bringing together technology and visual storytelling to create distinctive digital experiences that inspire, connect, and leave a lasting impression.',
-    'hero.viewWork': 'Explore Projects',
-    'hero.collaborate': 'Work With Me',
-    'hero.available': 'AVAILABLE FOR NEW PROJECTS',
-    'hero.based': 'BASED IN VIETNAM',
-    'showcase.welcome': 'WELCOME TO MY CREATIVE UNIVERSE',
-    'showcase.where': 'Where',
-    'showcase.design': 'design',
-    'showcase.meets': 'meets',
-    'showcase.code': 'technology.',
+    'hero.viewWork': 'Explore Projects', 'hero.collaborate': 'Work With Me', 'hero.available': 'AVAILABLE FOR NEW PROJECTS', 'hero.based': 'BASED IN VIETNAM',
+    'showcase.welcome': 'WELCOME TO MY CREATIVE UNIVERSE', 'showcase.where': 'Where', 'showcase.design': 'design', 'showcase.meets': 'meets', 'showcase.code': 'technology.',
     'showcase.description': 'A creative space for digital interfaces, brand identities, and everything in between. Thoughtfully crafted details. Meaningful digital experiences.',
-    'showcase.development': 'DEVELOPMENT',
-    'showcase.visual': 'VISUAL DESIGN',
-    'showcase.creative': 'CREATIVITY',
-    'showcase.view': 'EXPLORE FEATURED PROJECTS',
-    'showcase.online': '● SYSTEM ONLINE',
-    'hero.scroll': 'SCROLL TO EXPLORE PROJECTS',
-    'home.curated': '01 / FEATURED WORK',
-    'home.selected': 'Selected',
-    'home.selectedAccent': 'Projects.',
-    'home.intro': 'Where code, aesthetics, and digital experiences come together.',
-    'home.all': 'VIEW ALL PROJECTS',
+    'showcase.development': 'DEVELOPMENT', 'showcase.visual': 'VISUAL DESIGN', 'showcase.creative': 'CREATIVITY', 'showcase.view': 'EXPLORE FEATURED PROJECTS',
+    'showcase.online': '● SYSTEM ONLINE', 'hero.scroll': 'SCROLL TO EXPLORE PROJECTS',
+    'home.curated': '01 / FEATURED WORK', 'home.selected': 'Selected', 'home.selectedAccent': 'Projects.',
+    'home.intro': 'Where code, aesthetics, and digital experiences come together.', 'home.all': 'VIEW ALL PROJECTS',
     'home.sample': 'Currently displaying 12 sample projects featuring technology icons, animated LED borders, and editable content. Connect Supabase to manage projects directly from the Admin Dashboard.',
-    'home.noProjects': 'No projects have been published yet.',
-    'home.marqueeA': 'DESIGN WITH PURPOSE',
-    'home.marqueeB': 'CREATE WITH PASSION',
-    'home.story': '02 / MY STORY',
-    'home.storyTitle1': 'ONE MINDSET.',
-    'home.storyTitle2': 'TWO WORLDS.',
-    'home.storyTitle3': 'ENDLESS',
-    'home.storyTitle4': 'POSSIBILITIES.',
+    'home.noProjects': 'No projects have been published yet.', 'home.marqueeA': 'DESIGN WITH PURPOSE', 'home.marqueeB': 'CREATE WITH PASSION',
+    'home.story': '02 / MY STORY', 'home.storyTitle1': 'ONE MINDSET.', 'home.storyTitle2': 'TWO WORLDS.', 'home.storyTitle3': 'ENDLESS', 'home.storyTitle4': 'POSSIBILITIES.',
     'home.storyBody': 'From lines of code that shape seamless experiences to visual designs that spark emotions, I believe truly exceptional products emerge when logical thinking meets imagination — where technology does more than function; it tells stories that leave a lasting impression.',
-    'home.meet': 'GET TO KNOW ME',
-    'home.skillA': 'REACT & FULL-STACK',
-    'home.skillB': 'BRANDING & UI/UX',
-    'home.skillC': 'GRAPHIC DESIGN & MOTION',
-
-    'home.expertise': '03 / EXPERTISE',
-    'home.create': 'I',
-    'home.createAccent': 'Create.',
-    'home.serviceA': 'Creative Software Development',
-    'home.serviceB': 'Digital Design & UI/UX',
-    'home.serviceC': 'Visual Storytelling',
-    'home.serviceDescA': 'React · TypeScript · APIs · Full-Stack',
-    'home.serviceDescB': 'Digital Products · Interfaces · Branding',
-    'home.serviceDescC': 'Graphics · Motion · Video Editing',
-
-    'work.eyebrow': '01 / PROJECT ARCHIVE',
-    'work.title': 'ALL',
-    'work.titleAccent': 'PROJECTS.',
-    'work.subtitle': 'A collection of ideas I have developed, designed, and brought to life.',
-    'work.all': 'ALL',
-    'work.development': 'DEVELOPMENT',
-    'work.design': 'DESIGN',
-    'work.search': 'SEARCH PROJECTS',
-    'work.noResults': 'No matching projects found. Try a different filter.',
-
-    'card.development': 'DEVELOPMENT',
-    'card.design': 'DESIGN',
-    'card.open': 'View Project',
-
-    'detail.loading': 'Loading project...',
-    'detail.notFound': 'Project not found.',
-    'detail.back': 'BACK TO ALL PROJECTS',
-    'detail.story': 'THE STORY',
-    'detail.projectLabel': 'ABOUT THE PROJECT',
-    'detail.live': 'VIEW LIVE WEBSITE',
-    'detail.source': 'SOURCE CODE',
-    'detail.category': 'CATEGORY',
-    'detail.role': 'ROLE',
-    'detail.client': 'CLIENT',
-    'detail.year': 'YEAR',
-    'detail.technology': 'TOOLS & TECHNOLOGIES',
-    'detail.more': '← EXPLORE MORE PROJECTS',
-    'detail.personal': 'Personal Project',
-
-    'gallery.heading': 'IMAGE',
-    'gallery.headingAccent': 'GALLERY.',
-    'gallery.eyebrow': 'PROJECT GALLERY',
-    'gallery.files': 'FILES',
-    'gallery.empty': 'The image gallery is being updated.',
-    'gallery.viewLive': 'View Live Website',
-    'gallery.enlarge': 'ENLARGE',
-    'gallery.open': 'Open Image',
-    'gallery.close': 'Close',
-    'gallery.prev': 'Previous Image',
-    'gallery.next': 'Next Image',
-    'gallery.image': 'image',
-
-    'about.eyebrow': '02 / BEHIND THE WORK',
-    'about.heading1': 'BEYOND',
-    'about.heading2': 'ONE DISCIPLINE.',
+    'home.meet': 'GET TO KNOW ME', 'home.skillA': 'REACT & FULL-STACK', 'home.skillB': 'BRANDING & UI/UX', 'home.skillC': 'GRAPHIC DESIGN & MOTION',
+    'home.expertise': '03 / EXPERTISE', 'home.create': 'I', 'home.createAccent': 'Create.',
+    'home.serviceA': 'Creative Software Development', 'home.serviceB': 'Digital Design & UI/UX', 'home.serviceC': 'Visual Storytelling',
+    'home.serviceDescA': 'React · TypeScript · APIs · Full-Stack', 'home.serviceDescB': 'Digital Products · Interfaces · Branding', 'home.serviceDescC': 'Graphics · Motion · Video Editing',
+    'work.eyebrow': '01 / PROJECT ARCHIVE', 'work.title': 'ALL', 'work.titleAccent': 'PROJECTS.', 'work.subtitle': 'A collection of ideas I have developed, designed, and brought to life.',
+    'work.all': 'ALL', 'work.development': 'DEVELOPMENT', 'work.design': 'DESIGN', 'work.search': 'SEARCH PROJECTS', 'work.noResults': 'No matching projects found. Try a different filter.',
+    'card.development': 'DEVELOPMENT', 'card.design': 'DESIGN', 'card.open': 'View Project',
+    'detail.loading': 'Loading project...', 'detail.notFound': 'Project not found.', 'detail.back': 'BACK TO ALL PROJECTS',
+    'detail.story': 'THE STORY', 'detail.projectLabel': 'ABOUT THE PROJECT', 'detail.live': 'VIEW LIVE WEBSITE', 'detail.source': 'SOURCE CODE',
+    'detail.category': 'CATEGORY', 'detail.role': 'ROLE', 'detail.client': 'CLIENT', 'detail.year': 'YEAR', 'detail.technology': 'TOOLS & TECHNOLOGIES',
+    'detail.more': '← EXPLORE MORE PROJECTS', 'detail.personal': 'Personal Project',
+    'gallery.heading': 'IMAGE', 'gallery.headingAccent': 'GALLERY.', 'gallery.eyebrow': 'PROJECT GALLERY', 'gallery.files': 'FILES',
+    'gallery.empty': 'The image gallery is being updated.', 'gallery.viewLive': 'View Live Website', 'gallery.enlarge': 'ENLARGE',
+    'gallery.open': 'Open Image', 'gallery.close': 'Close', 'gallery.prev': 'Previous Image', 'gallery.next': 'Next Image', 'gallery.image': 'image',
+    'about.eyebrow': '02 / BEHIND THE WORK', 'about.heading1': 'BEYOND', 'about.heading2': 'ONE DISCIPLINE.',
     'about.hello': 'HELLO, I’M PHAN HUU.',
     'about.p1': 'I’m passionate about technology, design, and creating unique digital experiences. By combining creative thinking with web development expertise, I transform ideas into intuitive, modern, and distinctive digital products. From graphic design and brand identity to website development and user interface design, I strive to achieve the perfect balance between aesthetics, functionality, and user experience. For me, every project is more than just a finished product — it is an opportunity to explore new possibilities and push the boundaries of creativity and technology.',
-    'about.collaborate': 'LET’S WORK TOGETHER',
-    'about.toolkit': 'MY TOOLKIT',
-    'about.technical': 'TECHNICAL',
-    'about.creative': 'CREATIVE',
-
-    'contact.eyebrow': '03 / LET’S CONNECT',
-    'contact.heading1': 'GOT AN IDEA?',
-    'contact.heading2': 'LET’S BRING IT',
-    'contact.heading3': 'TO LIFE.',
+    'about.collaborate': 'LET’S WORK TOGETHER', 'about.toolkit': 'MY TOOLKIT', 'about.technical': 'TECHNICAL', 'about.creative': 'CREATIVE',
+    'contact.eyebrow': '03 / LET’S CONNECT', 'contact.heading1': 'GOT AN IDEA?', 'contact.heading2': 'LET’S BRING IT', 'contact.heading3': 'TO LIFE.',
     'contact.description': 'Have a project in mind, a question, or simply want to connect? I’m always open to exciting collaborations and meaningful conversations.',
-
-    'notFound.eyebrow': '404 / PAGE NOT FOUND',
-    'notFound.title': 'LOST IN',
-    'notFound.accent': 'CREATIVITY.',
-    'notFound.home': '← BACK TO HOME',
-
-    'showcase.3dLabel': '3D PHAN HUU emblem surrounded by glowing blue rings',
-    'showcase.online3d': 'DESIGN SYSTEM ONLINE',
-
-    'intro.open': 'Opening PHAN HUU Portfolio',
-    'intro.crafting': 'CRAFTING DIGITAL EXPERIENCES',
-
-    'tech.notUpdated': 'Technologies not updated',
-    'loading.projects': 'Loading projects...',
-    'loading.error': 'Failed to load data:',
-    'art.preview': 'Preview Project Image',
-  }
-
+    'notFound.eyebrow': '404 / PAGE NOT FOUND', 'notFound.title': 'LOST IN', 'notFound.accent': 'CREATIVITY.', 'notFound.home': '← BACK TO HOME',
+    'showcase.3dLabel': '3D PHAN HUU emblem surrounded by glowing blue rings', 'showcase.online3d': 'DESIGN SYSTEM ONLINE', 'intro.open': 'Opening PHAN HUU Portfolio', 'intro.crafting': 'CRAFTING DIGITAL EXPERIENCES', 'tech.notUpdated': 'Technologies not updated', 'loading.projects': 'Loading projects...', 'loading.error': 'Failed to load data:', 'art.preview': 'Preview Project Image',
+  },
 };
 
-/** Browser preference only: never uses IP, geolocation, cookies, saved language or a visible selector. */
+/** Uses browser preferences only: no IP, geolocation, cookies or stored language. */
 export function detectBrowserLanguage(): Locale {
   if (typeof navigator === 'undefined') return 'en';
-  const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+
+  const browserLanguages = navigator.languages?.length
+    ? navigator.languages
+    : [navigator.language];
   const preferred = browserLanguages.find(Boolean) ?? 'en';
-  // Use the visitor's FIRST preferred locale, not a secondary fallback that may not represent their choice.
+  // Use the visitor's first preferred language, not a secondary fallback.
   const primary = preferred.toLowerCase().split('-')[0];
+
   return primary === 'vi' ? 'vi' : 'en';
 }
 
-type I18nContextValue = { language: Locale; t: (key: string) => string };
+type I18nContextValue = {
+  language: Locale;
+  t: (key: string) => string;
+};
+
 const I18nContext = createContext<I18nContextValue | null>(null);
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setCurrentLanguage] = useState<Locale>(detectBrowserLanguage);
-  // Browser language may change while a tab is still open.
+
   useEffect(() => {
     const update = () => setCurrentLanguage(detectBrowserLanguage());
     window.addEventListener('languagechange', update);
     return () => window.removeEventListener('languagechange', update);
   }, []);
+
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title = language === 'vi' ? 'Phan Hữu | Lập trình & Thiết kế sáng tạo' : 'Phan Hữu | Creative Development & Design';
+    document.title = language === 'vi'
+      ? 'Phan Hữu | Lập trình & Thiết kế sáng tạo'
+      : 'Phan Hữu | Creative Development & Design';
+
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (description) description.content = language === 'vi' ? 'Portfolio Phan Hữu: website, lập trình sáng tạo và các dự án thiết kế thương hiệu.' : 'Phan Hữu creative portfolio: development, websites and visual design projects.';
+    if (description) {
+      description.content = language === 'vi'
+        ? 'Portfolio Phan Hữu: website, lập trình sáng tạo và các dự án thiết kế thương hiệu.'
+        : 'Phan Hữu creative portfolio: development, websites and visual design projects.';
+    }
   }, [language]);
-  const t = useCallback((key: string) => messages[language][key] ?? messages.en[key] ?? key, [language]);
+
+  const t = useCallback(
+    (key: string) => messages[language][key] ?? messages.en[key] ?? key,
+    [language],
+  );
   const value = useMemo(() => ({ language, t }), [language, t]);
+
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
-export function useI18n() { const ctx = useContext(I18nContext); if (!ctx) throw new Error('useI18n requires LanguageProvider'); return ctx; }
+
+export function useI18n() {
+  const ctx = useContext(I18nContext);
+  if (!ctx) throw new Error('useI18n requires LanguageProvider');
+  return ctx;
+}
