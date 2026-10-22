@@ -27,7 +27,7 @@ export default function Home(){
    </svg>
   </div>
   <div className="hero-content container">
-   <div className="hero-pill"><Sparkles size={14}/> <span>{t('hero.pill')}</span> <span className="pill-dot"/> <span>PORTFOLIO 2026</span></div>
+   <div className="hero-pill"><Sparkles size={14}/> <span>{t('hero.pill')}</span> <span className="pill-dot"/> <span>PORTFOLIO</span></div>
    <h1 id="hero-title" className="neone-headline"><span className="headline-primary">{t('hero.title1')}</span><span className="headline-accent">{t('hero.title2')}</span></h1>
    <p className="neone-subtitle">{t('hero.subtitle')}</p>
    <div className="hero-actions"><Link className="primary-button focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-electric" to="/work">{t('hero.viewWork')} <ArrowUpRight size={18}/></Link><Link className="ghost-button focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-electric" to="/contact">{t('hero.collaborate')} <ArrowRight size={17}/></Link></div>
